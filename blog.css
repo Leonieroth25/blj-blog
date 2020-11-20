@@ -1,0 +1,26 @@
+h1{
+text-align: center;
+}
+
+
+.nav{
+    background-color: lightgrey;
+    height: 75px;
+    text-align:  center;
+}
+p{
+    text-align: center;
+}
+
+.error-box {
+    color: red;
+    background-color: rgb(250, 220, 220);
+    border: 1px solid red;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
