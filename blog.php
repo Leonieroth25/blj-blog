@@ -28,7 +28,9 @@ if ($contribution === '') {
 
     <p>Dies ist mein erster Blog Beitrag. Ich hoffe er gefällt euch.
         <br>Unten könnt ihr eure eigenen Beiträge schrieben oder die anderen kommentieren/bewerten.
-        <br>Ich freue mich auf eure Beiträge. <br>Liebe Grüsse Leonie</p>
+        <br>Ich freue mich auf eure Beiträge. 
+        <br>Liebe Grüsse Leonie
+    </p>
 
 
         <?php if(count($errors) > 0) : ?>
