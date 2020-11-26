@@ -4,9 +4,10 @@ text-align: center;
 
 
 .nav{
-    background-color: lightgrey;
+    background-color:lightgray;
     height: 75px;
     text-align:  center;
+    
 }
 p{
     text-align: center;
@@ -23,4 +24,5 @@ p{
 a{
     color: black;
     text-decoration: none;
+   
 }
