@@ -24,7 +24,6 @@ $dbuser = "d041e_listuder";
 
     <?php include("nav.php");?>
     <br><br>
-
 </body>
 </html>
         

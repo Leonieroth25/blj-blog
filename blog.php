@@ -46,7 +46,6 @@ $query= 'select * from posts order by created_at desc';
 $stmt = $pdo -> query($query);
 $rows = $stmt -> fetchAll();
 
-
 ?>
 
 <!DOCTYPE html>
