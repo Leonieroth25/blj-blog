@@ -1,34 +1,31 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andere Blogs</title>
-    <link rel="stylesheet" href="blog.css">
-</head>
+<?php
+$dbuser = "d041e_listuder";
+$dbpass = "12345_Db!!!";
 
-<body>
-<h1>Andere Blogs</h1>
+$pdo = new PDO("mysql:host=mysql2.webland.ch;dbname=d041e_listuder", $dbuser, $dbpass, [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+]);
+echo '<h1>Blogs meiner BLJ-Kollegen</h1>';
+$sqlQuery = $pdo->query("SELECT * FROM `blog_url`");
+$urls = $sqlQuery->fetchAll();
 
-<?php include("nav.php");?>
+foreach($urls as $url) {
+    $link = '<a href="' . $url["blogUrl"] . '" target="_blank">' . $url["blogAuthor"] . ''s Blog' . '</a>' . '<br>';
 
-   
-<a href="http://www.041er-blj.ch/2020/nobuchs/blog">Noah</a><br>
-<a href="http://www.041er-blj.ch/2020/dakapka/blog">Dawid</a><br>
-<a href="http://www.041er-blj.ch/2020/namueller/blog">Natascha</a><br>
-<a href="http://www.041er-blj.ch/2020/kihuber/blog">Kris</a><br>
-<a href="http://www.041er-blj.ch/2020/listuder/blog">Lian</a><br>
-<a href="http://www.041er-blj.ch/2020/sireichlin/blog">Silas</a><br>
-<a href="http://www.041er-blj.ch/2020/tavolic/blog">Tamara</a><br>
-<a href="http://www.041er-blj.ch/2020/gifederspiel/blog">Gian</a><br>
-<a href="http://www.041er-blj.ch/2020/thloetscher/blog">Thierry</a><br>
-<a href="http://www.041er-blj.ch/2020/rohaenggi/blog">Rouven</a><br>
-<a href="http://www.041er-blj.ch/2020/alfacalcastro/blog">Alejandro</a><br>
-<a href="http://www.041er-blj.ch/2020/docamenzind/blog">Dominic</a><br>
-<a href="http://www.041er-blj.ch/2020/jamurer/blog">Janik</a><br>
-<a href="http://www.041er-blj.ch/2020/corheichmut/blog">Corinne</a><br>
-<a href="http://www.041er-blj.ch/2020/daleo/blog">Damiano</a><br>
+   echo $link;
+} 
 
 
-</body>
-</html>
+
+
+var_dump($urls);
+
+
+echo '<h1>Blogs meiner BLJ-Kollegen</h1>';
+
+
+
+
+?>
+

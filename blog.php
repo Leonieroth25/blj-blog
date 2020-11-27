@@ -3,6 +3,7 @@ $errors = [];
 $name = '';
 $contribution = '';
 $date = '';
+$title ='';
 
 
 
@@ -17,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name    = $_POST['name']    ?? '';
     $contribution   = $_POST['contribution']   ?? '';
     $date    = date('d.m.y H:i:s'); 
+    $title    = $_POST['title']    ?? '';
 
     if (empty($name)) {
         $errors[] = 'Bitte geben Sie einen Namen ein.';
@@ -24,10 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (empty($contribution)) {
         $errors[] = 'Bitte geben Sie einen Text ein.';
     }
+    if (empty($title)) {
+        $errors[] = 'Bitte geben Sie einen Titel ein.';
+    }
     
     if (count($errors) == 0) {
-        $stmt = $pdo->prepare("INSERT INTO posts (created_at, created_by, post_text) VALUES(:post_date, :creator, :post)");
-        $stmt->execute([':post_date' => $date ,':creator' => $name,':post' => $contribution]);
+        $stmt = $pdo->prepare("INSERT INTO posts (created_at, created_by, post_title, post_text) VALUES(:post_date, :creator, :title, :post)");
+        $stmt->execute([':post_date' => $date ,':creator' => $name,':title' => $title, ':post' => $contribution]);
     }
 }
 
@@ -69,7 +74,7 @@ $rows = $stmt -> fetchAll();
     
         <?php foreach($rows as $rows) {
             echo '<div class="frame">';
-        echo $rows ["created_by"]. '<br>' . 'Post: ' . $rows["post_text"] .'<br>';
+        echo 'Name: ' . $rows ["created_by"] .' / ' . $rows ["created_at"] .'<br>' . 'Titel: ' . $rows["post_title"] . '<br>' . 'Post: ' .  $rows["post_text"] .'<br>';
             echo '</div><br>';
             
         }
@@ -95,6 +100,13 @@ $rows = $stmt -> fetchAll();
                 <label class="form-label" for="name">Ihr Name<br></label>
                 <input class="form-control" type="text" id="name" name="name" value="<?= $name ?>">
             </div>
+
+            <div class="form-group">
+                <label class="form-label" for="title">Ihr Titel<br></label>
+                <input class="form-control" type="text" id="title" name="title" value="<?= $title ?>">
+            </div>
+
+
 
             <div class="form-group">
                 <label for="contribution" class="contribution">Was möchten Sie uns Mitteilen?<br></label>
