@@ -16,7 +16,6 @@ foreach($urls as $url) {
    echo $link;
 } 
 
-
 var_dump($urls);
 
 
