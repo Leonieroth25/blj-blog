@@ -71,12 +71,11 @@ $rows = $stmt -> fetchAll();
         <br>Ich freue mich auf eure Beiträge. 
         <br>Liebe Grüsse Leonie
     </p>
-    
+
         <?php foreach($rows as $rows) {
             echo '<div class="frame">';
         echo 'Name: ' . $rows ["created_by"] .' / ' . $rows ["created_at"] .'<br>' . 'Titel: ' . $rows["post_title"] . '<br>' . 'Post: ' .  $rows["post_text"] .'<br>';
             echo '</div><br>';
-            
         }
         ?>
         <?php
