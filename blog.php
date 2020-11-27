@@ -17,7 +17,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog_db', 'root', '', [
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name    = $_POST['name']    ?? '';
     $contribution   = $_POST['contribution']   ?? '';
-    $date    = date('d.m.y H:i:s'); 
+    $date    = date('y.m.d H:i:s'); 
     $title    = $_POST['title']    ?? '';
 
     if (empty($name)) {

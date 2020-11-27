@@ -7,13 +7,12 @@ h1 {
   height: 45px;
   text-align: center;
   padding-top: 25px;
-  font-size: 1px;
-
+  font-size: 17px;
 }
 p {
   text-align: center;
 }
-.error-box{
+.error-box {
   color: red;
   background-color: rgb(250, 220, 220);
   border: 1px solid red;
@@ -24,11 +23,11 @@ a {
   color: black;
   text-decoration: none;
 }
-.body{
-    background-color: lightgray;
+.body {
+  background-color: lightgray;
 }
 .frame {
-  color:black;
+  color: black;
   background-color: white;
   border-color: black;
   border-radius: 5px;
@@ -36,5 +35,4 @@ a {
   padding-bottom: 10px;
   width: 50%;
   border: 2px solid;
-
 }
