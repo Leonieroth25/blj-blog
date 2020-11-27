@@ -65,7 +65,6 @@ $rows = $stmt -> fetchAll();
    
     <?php include("nav.php");?>
 
-
     <p>Herzlich Willkommen auf meinem ersten richtigen Blog.
         <br>Unten könnt ihr eure eigenen Beiträge schreiben oder die anderen kommentieren/bewerten.
         <br>Ich freue mich auf eure Beiträge. 

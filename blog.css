@@ -8,12 +8,11 @@ h1 {
   text-align: center;
   padding-top: 25px;
   font-size: 1px;
-  
+
 }
 p {
   text-align: center;
 }
-
 .error-box{
   color: red;
   background-color: rgb(250, 220, 220);
