@@ -5,8 +5,7 @@ $contribution = '';
 $date = '';
 $title ='';
 $picture ='';
-$rating = '';
-$comment = '';
+//$comment = '';
 
 $pdo = new PDO('mysql:host=mysql2.webland.ch;dbname=d041e_leroth', 'd041e_leroth', '12345_Db!!!', [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -16,11 +15,10 @@ $pdo = new PDO('mysql:host=mysql2.webland.ch;dbname=d041e_leroth', 'd041e_leroth
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name    = $_POST['name']    ?? '';
     $contribution   = $_POST['contribution']   ?? '';
-    $date    = date('y.m.d H:i:s'); 
+    $date    = date('y.m.d H:i:s');
     $title    = $_POST['title']    ?? '';
     $picture = $_POST ['picture'] ??'';
-    $rating    = $_POST['rating']    ?? '';
-    $comment    = $_POST['comment']    ?? '';
+    //$comment    = $_POST['comment']    ?? '';
 
     if (empty($name)) {
         $errors[] = 'Bitte geben Sie einen Namen ein.';
@@ -34,9 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     if (count($errors) == 0) {
         
-        $stmt = $pdo->prepare("INSERT INTO posts (created_at, created_by, post_title, post_text, comment) VALUES(:post_date, :creator, :title, :post, :comment)");
-        //$stmt = $pdo->prepare("INSERT INTO posts (comment) VALUES(:comment)");
-        $stmt->execute([':post_date' => $date ,':creator' => $name,':title' => $title, ':post' => $contribution, ':comment' => $comment]);
+        $stmt = $pdo->prepare("INSERT INTO posts (created_at, created_by, post_title, post_text, picture) VALUES(:post_date, :creator, :title, :post, :picture)");
+        $stmt->execute([':post_date' => $date ,':creator' => $name,':title' => $title, ':post' => $contribution, ':picture'=> $picture]);
        
         
     }
@@ -79,9 +76,8 @@ $rows = $stmt -> fetchAll();
 
     <p>Drücke auf das Wort </p>
     <a href="#beitragformular">BEITRAG</a>
-    <p> um etwas zu posten.</p>
+    <p> um einen Post zu verfassen.</p>
     <br>
-
 
     <?php foreach($rows as $rows) {
             echo '<div class="frame">';
@@ -89,32 +85,10 @@ $rows = $stmt -> fetchAll();
             .' / ' . htmlspecialchars($rows ["created_at"]) .'<br>' 
             . 'Titel: ' . htmlspecialchars($rows["post_title"]) . '<br>' 
             . 'Post: ' . htmlspecialchars($rows["post_text"]) .'<br>' 
-            .'Kommentar: ' . htmlspecialchars($rows ["comment"]) 
-            . '<img id="picture" src="' .htmlspecialchars($rows["picture"]) . '" alt="">';
+            //. 'Kommentar: ' . htmlspecialchars($rows ["comment"]) 
+            . '<img id="picture" src="' . htmlspecialchars($rows["picture"]) . '" alt="">';
 
-
-            
-            //echo 'Kommentar: ' . htmlspecialchars($rows ["comment"]);
-    ?>
-
-                <br>
-                <div class="form-group">
-                    <label for="comment" class="comment">haha<br></label>
-                    <textarea name="comment" id="comment" rows="3" class="comment"><?= $comment ?></textarea>
-                
-                </div>
-            <?php
-             
-            
-            ?>
-               
-                <div class="form-button">
-                    <input class="btn btn-primary" type="submit" value="Kommentar posten" name="post-btn">
-                    <a href="blog.php" class="btn">Kommentar abbrechen</a>
-                </div>
-
-    <?php
-            
+ 
             
             
             //echo '<div><a href="blog.php" class="btn">gut</a>/<a href="blog.php" class="btn">schlecht</a></div>';
@@ -122,9 +96,6 @@ $rows = $stmt -> fetchAll();
 
 
             echo '</div><br>';
-
-            
-           // echo'<imgid="picture" scr="' .htmlspecialchars($rows["imageurl"]).'"alt="">';
             
         }
         ?>
@@ -164,7 +135,7 @@ $rows = $stmt -> fetchAll();
             </div>
 
             <div class="form-group">
-                <label class="form-label" for="picture">Link für ein Bild<br></label>
+                <label class="form-label" for="picture">Link für ein Bild (optional)<br></label>
                 <input class="form-control" type="text" id="picture" name="picture" value="<?= $picture ?>">
                 
             </div>
