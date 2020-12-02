@@ -12,6 +12,8 @@ $pdo = new PDO('mysql:host=mysql2.webland.ch;dbname=d041e_leroth', 'd041e_leroth
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 ]);
 
+    
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name    = $_POST['name']    ?? '';
     $contribution   = $_POST['contribution']   ?? '';
@@ -86,7 +88,7 @@ $rows = $stmt -> fetchAll();
             . 'Titel: ' . htmlspecialchars($rows["post_title"]) . '<br>' 
             . 'Post: ' . htmlspecialchars($rows["post_text"]) .'<br>' 
             //. 'Kommentar: ' . htmlspecialchars($rows ["comment"]) 
-            . '<img id="picture" src="' . htmlspecialchars($rows["picture"]) . '" alt="">';
+            . '<img class="picture" src="' . htmlspecialchars($rows["picture"]) . '" alt="">';
 
  
             

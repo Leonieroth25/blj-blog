@@ -40,6 +40,6 @@ a {
   text-align: center;
 }
 .picture {
-  max-width: 50px;
-  max-height: 50px;
+  width: 400px;
+  height: auto;
 }
