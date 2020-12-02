@@ -69,7 +69,7 @@ $rows = $stmt -> fetchAll();
     <?php include("nav.php");?>
 
     <p class="text">Herzlich Willkommen auf meinem Blog.
-        <br>Unten könnt ihr eure eigenen Beiträge schreiben oder die anderen kommentieren/bewerten.
+        <br>Unten könnt ihr eure eigenen Beiträge schreiben.
         <br>Ich freue mich auf eure Beiträge. 
     </p>
         

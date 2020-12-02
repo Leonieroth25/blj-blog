@@ -9,7 +9,7 @@ h1 {
   padding-top: 25px;
   font-size: 17px;
 }
-p {
+.p {
   text-align: left;
 }
 .error-box {
@@ -39,7 +39,7 @@ a {
 .text {
   text-align: center;
 }
-.picture{
-    max-width: 50px;
-    max-height: 50px;
+.picture {
+  max-width: 50px;
+  max-height: 50px;
 }
