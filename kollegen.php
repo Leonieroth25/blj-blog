@@ -6,7 +6,6 @@ $dbuser = "d041e_listuder";
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
     ]);
-
     $sqlQuery = $dbConnection->query("SELECT * FROM blog_url");
     $urls = $sqlQuery->fetchAll();
 ?>

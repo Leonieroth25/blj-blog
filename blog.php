@@ -62,8 +62,6 @@ $rows = $stmt -> fetchAll();
     <title>Leonie's Blog</title>
     <link rel="stylesheet" href="blog.css">
 </head>
-
-
 <body class="body">
 
     <h1>Leonie's Blog</h1>
