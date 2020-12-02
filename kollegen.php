@@ -11,7 +11,7 @@ $dbuser = "d041e_listuder";
     $urls = $sqlQuery->fetchAll();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

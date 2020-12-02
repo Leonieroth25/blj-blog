@@ -10,7 +10,7 @@ h1 {
   font-size: 17px;
 }
 p {
-  text-align: center;
+  text-align: left;
 }
 .error-box {
   color: red;
@@ -35,4 +35,7 @@ a {
   padding-bottom: 10px;
   width: 50%;
   border: 2px solid;
+}
+.text {
+  text-align: center;
 }

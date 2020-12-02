@@ -5,11 +5,7 @@ $contribution = '';
 $date = '';
 $title ='';
 
-
-
-$user = 'root';
-$password = '';
-$pdo = new PDO('mysql:host=localhost;dbname=blog_db', 'root', '', [
+$pdo = new PDO('mysql:host=mysql2.webland.ch;dbname=d041e_leroth', 'd041e_leroth', '12345_Db!!!', [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 ]);
@@ -64,17 +60,28 @@ $rows = $stmt -> fetchAll();
    
     <?php include("nav.php");?>
 
-    <p>Herzlich Willkommen auf meinem ersten richtigen Blog.
+    <p class="text">Herzlich Willkommen auf meinem Blog.
         <br>Unten könnt ihr eure eigenen Beiträge schreiben oder die anderen kommentieren/bewerten.
         <br>Ich freue mich auf eure Beiträge. 
-        <br>Liebe Grüsse Leonie
     </p>
-        <?php foreach($rows as $rows) {
+        
+
+    <p>Drücke auf das Wort </p>
+    <a href="#beitragformular">BEITRAG</a>
+    <p> um etwas zu posten.</p>
+    <br>
+
+
+    <?php foreach($rows as $rows) {
             echo '<div class="frame">';
-        echo 'Name: ' . $rows ["created_by"] .' / ' . $rows ["created_at"] .'<br>' . 'Titel: ' . $rows["post_title"] . '<br>' . 'Post: ' .  $rows["post_text"] .'<br>';
+            echo 'Name: ' . htmlspecialchars($rows ["created_by"]) .' / ' . htmlspecialchars($rows ["created_at"]) .'<br>' . 'Titel: ' . htmlspecialchars($rows["post_title"]) . '<br>' . 'Post: ' .  htmlspecialchars($rows["post_text"]) .'<br>';
+                    
+            //echo '<div><a href="blog.php" class="btn">gut</a>/<a href="blog.php" class="btn">schlecht</a></div>';
             echo '</div><br>';
+            
         }
         ?>
+        
         <?php
         if(count($errors) > 0) : 
         ?>
@@ -89,7 +96,7 @@ $rows = $stmt -> fetchAll();
             </div>
         <?php endif; ?>
         
-        <form action="blog.php" method="post">
+        <form action="blog.php" method="post" id="beitragformular">
             <legend class="form-legend"><br>Ihr eigener Beitrag:<br>
             </legend>
             <div class="form-group">
@@ -113,6 +120,8 @@ $rows = $stmt -> fetchAll();
                 <input class="btn btn-primary" type="submit" value="Beitrag posten" name="post-btn">
                 <a href="blog.php" class="btn">Beitrag abbrechen</a>
             </div>
+
+
         </form>
 </body>
 </html>
